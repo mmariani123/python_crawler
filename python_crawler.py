@@ -10,7 +10,7 @@ Created on Sat Aug  7 19:42:02 2021
 #check out https://www.blog.datahut.co/post/how-to-build-a-web-crawler-from-scratch
 #for more info, they used the scrapy module so I will use it here as well. 
 
-import scrapy
+#import scrapy
        
 inputPrompt = "Welcome to python crawler v1.0\n" \
     "This program is usefule for web scraping and SQL databasing\n" \
@@ -112,11 +112,11 @@ while(inputIn!="exit"):
                 continue
             else:
                 print("Execute crawler command\n")
-                class spider1(scrapy.Spider):
-                    name = ‘Wikipedia’
-                    start_urls = [‘https://en.wikipedia.org/wiki/Battery_(electricity)’]       
-                    def parse(self, response):
-                        pass
+                #class spider1(scrapy.Spider):
+                #    name = ‘Wikipedia’
+                #    start_urls = [‘https://en.wikipedia.org/wiki/Battery_(electricity)’]       
+                #    def parse(self, response):
+                #        pass
     else:
         inputIn = input(inputPrompt)
         print(inputIn)
