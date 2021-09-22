@@ -1,11 +1,11 @@
 #!/usr/bin/env Python3
 
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Aug  7 19:42:02 2021
-
-@author: Mike_2
-"""
+#"""
+#Created on Sat Aug  7 19:42:02 2021
+#
+#@author: Mike_2
+#"""
 
 #check out https://www.blog.datahut.co/post/how-to-build-a-web-crawler-from-scratch
 #for more info, they used the scrapy module so I will use it here as well. 
@@ -151,7 +151,8 @@ while(inputIn!="exit"):
                 print("Execute crawler command\n")
                 #class spider1(scrapy.Spider):
                 #    name = ‘Wikipedia’
-                #    start_urls = [‘https://en.wikipedia.org/wiki/Battery_(electricity)’]       
+                #    start_urls = 
+                #    [‘https://en.wikipedia.org/wiki/Battery_(electricity)’]       
                 #    def parse(self, response):
                 #        pass
     elif inputIn=="sql":
@@ -178,12 +179,11 @@ while(inputIn!="exit"):
                     port = '3306',
                     user = 'mike',
                     passwd = 'capncrunch1',
-                    db = 'myDatabase'
-                    connection_timout=300
-                )
+                    db = 'myDatabase',
+                    connection_timout=300)
                 if conn.is_connected():
                     print('Connected to MySQL database')
-            except Error as e:
+            except NameError as e:
                 print(e)
             finally:
                 if conn is not None and conn.is_connected():
@@ -206,7 +206,8 @@ while(inputIn!="exit"):
         for x in mycursor:
             print(x)
             
-        mycursor.execute("CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))")
+        mycursor.execute("CREATE TABLE customers (name VARCHAR(255), \
+                         address VARCHAR(255))")
   
         mycursor.execute("SHOW TABLES")
 
@@ -360,20 +361,20 @@ while(inputIn!="exit"):
         #Remember that the values has to be unique. 
         #Two documents cannot have the same _id.
         mylist = [
-                    { "_id": 1, "name": "John", "address": "Highway 37"},
-                    { "_id": 2, "name": "Peter", "address": "Lowstreet 27"},
-                    { "_id": 3, "name": "Amy", "address": "Apple st 652"},
-                    { "_id": 4, "name": "Hannah", "address": "Mountain 21"},
-                    { "_id": 5, "name": "Michael", "address": "Valley 345"},
-                    { "_id": 6, "name": "Sandy", "address": "Ocean blvd 2"},
-                    { "_id": 7, "name": "Betty", "address": "Green Grass 1"},
-                    { "_id": 8, "name": "Richard", "address": "Sky st 331"},
-                    { "_id": 9, "name": "Susan", "address": "One way 98"},
-                    { "_id": 10, "name": "Vicky", "address": "Yellow Garden 2"},
-                    { "_id": 11, "name": "Ben", "address": "Park Lane 38"},
-                    { "_id": 12, "name": "William", "address": "Central st 954"},
-                    { "_id": 13, "name": "Chuck", "address": "Main Road 989"},
-                    { "_id": 14, "name": "Viola", "address": "Sideway 1633"}
+                { "_id": 1, "name": "John", "address": "Highway 37"},
+                { "_id": 2, "name": "Peter", "address": "Lowstreet 27"},
+                { "_id": 3, "name": "Amy", "address": "Apple st 652"},
+                { "_id": 4, "name": "Hannah", "address": "Mountain 21"},
+                { "_id": 5, "name": "Michael", "address": "Valley 345"},
+                { "_id": 6, "name": "Sandy", "address": "Ocean blvd 2"},
+                { "_id": 7, "name": "Betty", "address": "Green Grass 1"},
+                { "_id": 8, "name": "Richard", "address": "Sky st 331"},
+                { "_id": 9, "name": "Susan", "address": "One way 98"},
+                { "_id": 10, "name": "Vicky", "address": "Yellow Garden 2"},
+                { "_id": 11, "name": "Ben", "address": "Park Lane 38"},
+                { "_id": 12, "name": "William", "address": "Central st 954"},
+                { "_id": 13, "name": "Chuck", "address": "Main Road 989"},
+                { "_id": 14, "name": "Viola", "address": "Sideway 1633"}
                 ]
         #x = myCollection.insert_many(mylist)
         #print list of the _id values of the inserted documents:
@@ -466,7 +467,7 @@ while(inputIn!="exit"):
             
         myquery = { "address": { "$regex": "^S" } }
         newvalues = { "$set": { "name": "Minnie" } }
-        x = mycol.update_many(myquery, newvalues)
+        x = myCollection.update_many(myquery, newvalues)
         print(x.modified_count, "documents updated.")
             
         myresult = myCollection.find().limit(5)
